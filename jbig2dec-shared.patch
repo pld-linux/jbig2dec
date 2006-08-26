@@ -1,0 +1,62 @@
+--- jbig2dec-0.9/Makefile.am.orig	2005-05-24 05:49:47.000000000 +0200
++++ jbig2dec-0.9/Makefile.am	2006-08-27 00:18:23.211079500 +0200
+@@ -4,10 +4,10 @@
+ # require automake 1.7
+ AUTOMAKE_OPTIONS = foreign 1.7 dist-bzip2 dist-zip -Wall
+ 
+-lib_LIBRARIES = libjbig2dec.a
++lib_LTLIBRARIES = libjbig2dec.la
+ include_HEADERS = jbig2.h
+ 
+-libjbig2dec_a_SOURCES = jbig2.c \
++libjbig2dec_la_SOURCES = jbig2.c \
+ 	jbig2_arith.c jbig2_arith_int.c jbig2_arith_iaid.c jbig2_huffman.c \
+ 	jbig2_segment.c jbig2_page.c \
+ 	jbig2_symbol_dict.c jbig2_text.c \
+@@ -26,7 +26,7 @@
+ jbig2dec_SOURCES = jbig2dec.c sha1.c sha1.h \
+ 	jbig2.h jbig2_image.h getopt.h \
+ 	os_types.h config_types.h config_win32.h
+-jbig2dec_LDADD = libjbig2dec.a @LIBOBJS@
++jbig2dec_LDADD = libjbig2dec.la @LIBOBJS@ $(PNG_LIBS)
+ 
+ EXTRA_DIST = test_jbig2dec.py msvc.mak LICENSE CHANGES
+ 
+@@ -39,9 +39,9 @@
+ 
+ test_arith_SOURCES = jbig2_arith.c
+ test_arith_CFLAGS = -DTEST
+-test_arith_LDADD = libjbig2dec.a
++test_arith_LDADD = libjbig2dec.la
+ 
+ test_huffman_SOURCES = jbig2_huffman.c
+ test_huffman_CFLAGS = -DTEST
+-test_huffman_LDADD = libjbig2dec.a
++test_huffman_LDADD = libjbig2dec.la
+ 
+--- jbig2dec-0.9/configure.ac.orig	2006-07-27 01:57:39.000000000 +0200
++++ jbig2dec-0.9/configure.ac	2006-08-27 00:28:46.842054000 +0200
+@@ -11,7 +11,7 @@
+ 
+ # Checks for programs.
+ AC_PROG_CC
+-AC_PROG_RANLIB
++AC_PROG_LIBTOOL
+ 
+ # platform specific compiler flags
+ if test "x$GCC" = xyes; then
+@@ -34,11 +34,12 @@
+     LDFLAGS="$LDFLAGS -L$ac_cv_want_libpng/lib"
+   fi
+   dnl libpng requires pow() which may be in libm
+-  AC_SEARCH_LIBS([pow], [m])
++  AC_CHECK_FUNC([pow], [M_LIB=], [AC_CHECK_LIB([m], [pow], [M_LIB="-lm"])])
+   AC_CHECK_LIB([png], [png_check_sig], [
+     AC_CHECK_LIB([z], [deflate], [
+       AC_DEFINE(HAVE_LIBPNG, 1, [Define if libpng is available (-lpng)])
+-      LIBS="-lpng -lz $LIBS"
++      PNG_LIBS="-lpng -lz $M_LIB"
++      AC_SUBST([PNG_LIBS])
+       AC_LIBOBJ([jbig2_image_png])
+       have_libpng="yes"
+     ])
