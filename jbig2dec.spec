@@ -1,5 +1,5 @@
 Summary:	Decoder implementation of the JBIG2 image compression format
-Summary(pl):	Implementacja dekodera formatu kompresji obrazu JBIG2
+Summary(pl.UTF-8):   Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
 Version:	0.9
 Release:	1
@@ -39,51 +39,51 @@ encodings, which are documented separately. Their specifications and
 T.88 can be obtained from the ITU. The ISO version of JBIG2 can be
 obtained through the ISO website.
 
-%description -l pl
+%description -l pl.UTF-8
 jbig2dec to implementacja dekodera formatu kompresji obrazu JBIG2.
-JBIG2 zosta³ zaprojektowany dla stratnego i bezstratnego kodowania
-dwupoziomowych (monochromatycznych, 1-bitowych) obrazów o do¶æ du¿ej
-rozdzielczo¶ci, w szczególno¶ci skanowanych dokumentów papierowych. W
-tej dziedzinie jest bardzo wydajny, oferuj±c wspó³czynniki kompresji
-rzêdu 100:1.
+JBIG2 zostaÅ‚ zaprojektowany dla stratnego i bezstratnego kodowania
+dwupoziomowych (monochromatycznych, 1-bitowych) obrazÃ³w o doÅ›Ä‡ duÅ¼ej
+rozdzielczoÅ›ci, w szczegÃ³lnoÅ›ci skanowanych dokumentÃ³w papierowych. W
+tej dziedzinie jest bardzo wydajny, oferujÄ…c wspÃ³Å‚czynniki kompresji
+rzÄ™du 100:1.
 
-Jest to implementacja wy³±cznie dekodera, aktualnie w stanie alpha, co
-oznacza, ¿e jeszcze nie do koñca dzia³a. Jednak autorzy utrzymuj± j± w
-parze z dostêpnymi koderami, wiêc jest u¿yteczna w praktycznych
+Jest to implementacja wyÅ‚Ä…cznie dekodera, aktualnie w stanie alpha, co
+oznacza, Å¼e jeszcze nie do koÅ„ca dziaÅ‚a. Jednak autorzy utrzymujÄ… jÄ… w
+parze z dostÄ™pnymi koderami, wiÄ™c jest uÅ¼yteczna w praktycznych
 zastosowaniach.
 
-Specyfikacja zosta³a opublikowana jako ISO IEC 14492 oraz ITU T.88. Te
-dokumenty ca³kowicie opisuj± format i s± wymagane do zrozumienia oraz
-rozwijania kodu. Autorzy jbig2dec preferuj± wersjê ISO, ale nie
-odkryli znacz±cych ró¿nic miêdzy nimi.
+Specyfikacja zostaÅ‚a opublikowana jako ISO IEC 14492 oraz ITU T.88. Te
+dokumenty caÅ‚kowicie opisujÄ… format i sÄ… wymagane do zrozumienia oraz
+rozwijania kodu. Autorzy jbig2dec preferujÄ… wersjÄ™ ISO, ale nie
+odkryli znaczÄ…cych rÃ³Å¼nic miÄ™dzy nimi.
 
-JBIG2 obejmuje tak¿e kodowania faksowe CCITT T.4 i T.6 (grupa 3 i
-grupa 4), które s± udokumentowane oddzielnie. Ich specyfikacje oraz
-T.88 mo¿na zdobyæ z ITU. Wersjê ISO JBIG2 mo¿na zdobyæ ze strony WWW
+JBIG2 obejmuje takÅ¼e kodowania faksowe CCITT T.4 i T.6 (grupa 3 i
+grupa 4), ktÃ³re sÄ… udokumentowane oddzielnie. Ich specyfikacje oraz
+T.88 moÅ¼na zdobyÄ‡ z ITU. WersjÄ™ ISO JBIG2 moÅ¼na zdobyÄ‡ ze strony WWW
 ISO.
 
 %package devel
 Summary:	Development files for jbig2dec library
-Summary(pl):	Pliki nag³ówkowe dla biblioteki jbig2dec
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla biblioteki jbig2dec
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Development files for jbig2dec library.
 
-%description devel -l pl
-Pliki nag³ówkowe dla biblioteki jbig2dec.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe dla biblioteki jbig2dec.
 
 %package static
 Summary:	Static version of jbig2dec library
-Summary(pl):	Statyczna wersja biblioteki jbig2dec
+Summary(pl.UTF-8):   Statyczna wersja biblioteki jbig2dec
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of jbig2dec library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki jbig2dec.
 
 %prep
