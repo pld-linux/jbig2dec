@@ -1,5 +1,5 @@
 Summary:	Decoder implementation of the JBIG2 image compression format
-Summary(pl.UTF-8):   Implementacja dekodera formatu kompresji obrazu JBIG2
+Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
 Version:	0.9
 Release:	1
@@ -64,7 +64,7 @@ ISO.
 
 %package devel
 Summary:	Development files for jbig2dec library
-Summary(pl.UTF-8):   Pliki nagłówkowe dla biblioteki jbig2dec
+Summary(pl.UTF-8):	Pliki nagłówkowe dla biblioteki jbig2dec
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -76,7 +76,7 @@ Pliki nagłówkowe dla biblioteki jbig2dec.
 
 %package static
 Summary:	Static version of jbig2dec library
-Summary(pl.UTF-8):   Statyczna wersja biblioteki jbig2dec
+Summary(pl.UTF-8):	Statyczna wersja biblioteki jbig2dec
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
