@@ -2,7 +2,7 @@ Summary:	Decoder implementation of the JBIG2 image compression format
 Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
 Version:	0.9
-Release:	2
+Release:	3
 License:	GPL with clause allowing linking to AFPL Ghostscript
 Group:		Applications
 Source0:	http://dl.sourceforge.net/jbig2dec/%{name}-%{version}.tar.gz
@@ -118,6 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES LICENSE README
 %attr(755,root,root) %{_bindir}/jbig2dec
 %attr(755,root,root) %{_libdir}/libjbig2dec.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libjbig2dec.so.0
 
 %files devel
 %defattr(644,root,root,755)
