@@ -3,9 +3,9 @@ Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
 Version:	0.11
 Release:	1
-License:	GPL with clause allowing linking to AFPL Ghostscript
+License:	GPL v2+ with AFPL Ghostscript exception
 Group:		Applications
-Source0:	http://dl.sourceforge.net/jbig2dec/%{name}-%{version}.tar.xz
+Source0:	http://downloads.sourceforge.net/jbig2dec/%{name}-%{version}.tar.xz
 # Source0-md5:	4cc8ab6fb7ebe6f24460ec5ce30d84d9
 Patch0:		%{name}-shared.patch
 URL:		http://jbig2dec.sourceforge.net/
