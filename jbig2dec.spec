@@ -1,18 +1,20 @@
 Summary:	Decoder implementation of the JBIG2 image compression format
 Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
-Version:	0.9
-Release:	3
+Version:	0.11
+Release:	1
 License:	GPL with clause allowing linking to AFPL Ghostscript
 Group:		Applications
-Source0:	http://dl.sourceforge.net/jbig2dec/%{name}-%{version}.tar.gz
-# Source0-md5:	e4bff86825ccde304c19bd7ec122fda4
+Source0:	http://dl.sourceforge.net/jbig2dec/%{name}-%{version}.tar.xz
+# Source0-md5:	4cc8ab6fb7ebe6f24460ec5ce30d84d9
 Patch0:		%{name}-shared.patch
 URL:		http://jbig2dec.sourceforge.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -119,6 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/jbig2dec
 %attr(755,root,root) %{_libdir}/libjbig2dec.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libjbig2dec.so.0
+%{_mandir}/man1/jbig2dec.1*
 
 %files devel
 %defattr(644,root,root,755)
