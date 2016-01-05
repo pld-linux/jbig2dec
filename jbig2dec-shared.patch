@@ -1,17 +1,16 @@
---- jbig2dec-0.9/configure.ac.orig	2006-07-27 01:57:39.000000000 +0200
-+++ jbig2dec-0.9/configure.ac	2006-08-27 00:28:46.842054000 +0200
-@@ -34,11 +34,12 @@
+--- jbig2dec-0.12/configure.ac.orig	2016-01-05 16:06:21.787376199 +0100
++++ jbig2dec-0.12/configure.ac	2016-01-05 16:55:48.807251688 +0100
+@@ -45,11 +45,11 @@
      LDFLAGS="$LDFLAGS -L$ac_cv_want_libpng/lib"
    fi
    dnl libpng requires pow() which may be in libm
 -  AC_SEARCH_LIBS([pow], [m])
 +  AC_CHECK_FUNC([pow], [M_LIB=], [AC_CHECK_LIB([m], [pow], [M_LIB="-lm"])])
-   AC_CHECK_LIB([png], [png_check_sig], [
+   AC_CHECK_LIB([png], [png_create_write_struct], [
      AC_CHECK_LIB([z], [deflate], [
        AC_DEFINE(HAVE_LIBPNG, 1, [Define if libpng is available (-lpng)])
--      LIBS="-lpng -lz $LIBS"
+-      PNG_LIBS="-lpng -lz"
 +      PNG_LIBS="-lpng -lz $M_LIB"
-+      AC_SUBST([PNG_LIBS])
        AC_LIBOBJ([jbig2_image_png])
        have_libpng="yes"
      ])

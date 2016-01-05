@@ -1,20 +1,19 @@
 Summary:	Decoder implementation of the JBIG2 image compression format
 Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
-Version:	0.11
-Release:	2
+Version:	0.12
+Release:	1
 License:	GPL v2+ with AFPL Ghostscript exception
-Group:		Applications
-Source0:	http://downloads.sourceforge.net/jbig2dec/%{name}-%{version}.tar.xz
-# Source0-md5:	4cc8ab6fb7ebe6f24460ec5ce30d84d9
+Group:		Applications/Graphics
+Source0:	http://downloads.ghostscript.com/public/jbig2dec/%{name}-%{version}.tar.gz
+# Source0-md5:	b73cfb55c61c6978e6539b889bdc2633
 Patch0:		%{name}-shared.patch
-URL:		http://jbig2dec.sourceforge.net/
+Patch1:		%{name}-png.patch
+URL:		http://www.ghostscript.com/jbig2dec.html
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
-BuildRequires:	tar >= 1:1.22
-BuildRequires:	xz
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,6 +90,7 @@ Statyczna wersja biblioteki jbig2dec.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
