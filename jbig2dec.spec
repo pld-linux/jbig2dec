@@ -1,13 +1,13 @@
 Summary:	Decoder implementation of the JBIG2 image compression format
 Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
-Version:	0.17
+Version:	0.18
 Release:	1
 License:	GPL v2+ with AFPL Ghostscript exception
 Group:		Applications/Graphics
 #Source0Download: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/
-Source0:	https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/%{name}-%{version}.tar.gz
-# Source0-md5:	898975d000e004616838a8c6a85dbf39
+Source0:	https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/%{name}-%{version}.tar.gz
+# Source0-md5:	a9079bc75aa8ffddff2bff524d9db934
 Patch0:		%{name}-shared.patch
 URL:		https://jbig2dec.com/
 BuildRequires:	autoconf >= 2.53
