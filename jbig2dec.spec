@@ -1,13 +1,13 @@
 Summary:	Decoder implementation of the JBIG2 image compression format
 Summary(pl.UTF-8):	Implementacja dekodera formatu kompresji obrazu JBIG2
 Name:		jbig2dec
-Version:	0.18
+Version:	0.19
 Release:	1
-License:	GPL v2+ with AFPL Ghostscript exception
+License:	AGPL v3+ with AFPL Ghostscript exception
 Group:		Applications/Graphics
 #Source0Download: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/
-Source0:	https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/%{name}-%{version}.tar.gz
-# Source0-md5:	a9079bc75aa8ffddff2bff524d9db934
+Source0:	https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9530/%{name}-%{version}.tar.gz
+# Source0-md5:	b709be00b33ee93053ddf2759f538276
 Patch0:		%{name}-shared.patch
 URL:		https://jbig2dec.com/
 BuildRequires:	autoconf >= 2.53
@@ -93,11 +93,10 @@ Statyczna wersja biblioteki jbig2dec.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-
 %configure
 
 %{__make}
@@ -107,6 +106,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libjbig2dec.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -125,7 +127,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libjbig2dec.so
-%{_libdir}/libjbig2dec.la
 %{_includedir}/jbig2.h
 %{_pkgconfigdir}/jbig2dec.pc
 
